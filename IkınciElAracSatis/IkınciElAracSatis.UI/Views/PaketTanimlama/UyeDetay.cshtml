@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "UyeDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IkınciElAracSatis.UI.Models.VM.Kullanici.KurumsalKullaniciVM
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            Kurumsal Kullanıcı : @Html.DisplayFor(a => a.Ad, new { @class = "mr-2" })
+            @Html.DisplayFor(a => a.Soyad)
+            <i style="font-size: 40px;" class="fas fa-laugh-wink text-warning"></i>
+        </h1>
+      
+    </div>
+    @using (Html.BeginForm("UyeDetay", "PaketTanimlama", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Kullanıcı Detay ve Onay Bilgileri</h6>
+            </div>
+            <div class="card-body row px-4">
+
+
+                <div class="col-6 pt-4">
+                    <div>
+                        <div class="card mb-2 border-right-0 shadow border-left-primary">
+                            <div class="card-body d-flex">
+                                <span class="mr-2 font-weight-bold text-primary text-uppercase">Ad Soyad : </span>
+                                @Html.DisplayFor(a => a.Ad, new { @class = "mr-2" })
+                                @Html.DisplayFor(a => a.Soyad)
+                                @Html.HiddenFor(a => a.KurumsalKullaniciID)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 pt-4">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">Email : </span>
+                            @Html.DisplayFor(a => a.Email)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">Şifre : </span>
+                            @Html.DisplayFor(a => a.Sifre)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">Adres : </span>
+                            @Html.DisplayFor(a => a.Adres)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">İl : </span>
+                            @Html.DisplayFor(a => a.İl)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">İlçe : </span>
+                            @Html.DisplayFor(a => a.İlce)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">Şirket Adı : </span>
+                            @Html.DisplayFor(a => a.SirketAdi)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">Şirket Bilgisi : </span>
+                            @Html.DisplayFor(a => a.SirketBilgisi)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card mb-2 border-right-0 shadow  border-left-primary">
+                        <div class="card-body d-flex">
+                            <span class="mr-2 font-weight-bold text-primary text-uppercase">Onay Bilgisi : </span>
+                            @Html.CheckBoxFor(a => a.OnayliMi)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mt-5 text-right">
+                    <div class="mt-4">
+                        <input type="submit" class="w-50 btn btn-outline-primary mb-4 font-weight-bold" value="Onay Bilgisini Kaydet" />
+                    </div>       
+                </div>
+               
+            </div>
+        </div>
+    }
+
+    
+
+</div>
+

@@ -1,0 +1,240 @@
+// .moCORE-open      - body class for killing the scroll
+// .moCORE           - container to scroll within
+// .moCORE-dialog    - positioning shell for the actual moCORE
+// .moCORE-content   - actual moCORE w/ bg and corners and stuff
+
+
+.moCORE-open {
+  // Kill the scroll on the body
+  overflow: hidden;
+
+  .moCORE {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+// Container that the moCORE scrolls within
+.moCORE {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-moCORE;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+  // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
+  // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
+  // See also https://github.com/twbs/bootstrap/issues/17695
+}
+
+// Shell div to position the moCORE with bottom padding
+.moCORE-dialog {
+  position: relative;
+  width: auto;
+  margin: $moCORE-dialog-margin;
+  // allow clicks to pass through for custom click handling to close moCORE
+  pointer-events: none;
+
+  // When fading in the moCORE, animate it to slide down
+  .moCORE.fade & {
+    @include transition($moCORE-transition);
+    transform: $moCORE-fade-transform;
+  }
+  .moCORE.show & {
+    transform: $moCORE-show-transform;
+  }
+
+  // When trying to close, animate focus to scale
+  .moCORE.moCORE-static & {
+    transform: $moCORE-scale-transform;
+  }
+}
+
+.moCORE-dialog-scrollable {
+  display: flex; // IE10/11
+  max-height: subtract(100%, $moCORE-dialog-margin * 2);
+
+  .moCORE-content {
+    max-height: subtract(100vh, $moCORE-dialog-margin * 2); // IE10/11
+    overflow: hidden;
+  }
+
+  .moCORE-header,
+  .moCORE-footer {
+    flex-shrink: 0;
+  }
+
+  .moCORE-body {
+    overflow-y: auto;
+  }
+}
+
+.moCORE-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: subtract(100%, $moCORE-dialog-margin * 2);
+
+  // Ensure `moCORE-dialog-centered` extends the full height of the view (IE10/11)
+  &::before {
+    display: block; // IE10
+    height: subtract(100vh, $moCORE-dialog-margin * 2);
+    height: min-content; // Reset height to 0 except on IE
+    content: "";
+  }
+
+  // Ensure `.moCORE-body` shows scrollbar (IE10/11)
+  &.moCORE-dialog-scrollable {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    .moCORE-content {
+      max-height: none;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+// Actual moCORE
+.moCORE-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%; // Ensure `.moCORE-content` extends the full width of the parent `.moCORE-dialog`
+  // counteract the pointer-events: none; in the .moCORE-dialog
+  color: $moCORE-content-color;
+  pointer-events: auto;
+  background-color: $moCORE-content-bg;
+  background-clip: padding-box;
+  border: $moCORE-content-border-width solid $moCORE-content-border-color;
+  @include border-radius($moCORE-content-border-radius);
+  @include box-shadow($moCORE-content-box-shadow-xs);
+  // Remove focus outline from opened moCORE
+  outline: 0;
+}
+
+// MoCORE background
+.moCORE-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-moCORE-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: $moCORE-backdrop-bg;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: $moCORE-backdrop-opacity; }
+}
+
+// MoCORE header
+// Top section of the moCORE w/ title and dismiss
+.moCORE-header {
+  display: flex;
+  align-items: flex-start; // so the close btn always stays on the upper right corner
+  justify-content: space-between; // Put moCORE header elements (title and dismiss) on opposite ends
+  padding: $moCORE-header-padding;
+  border-bottom: $moCORE-header-border-width solid $moCORE-header-border-color;
+  @include border-top-radius($moCORE-content-inner-border-radius);
+
+  .close {
+    padding: $moCORE-header-padding;
+    // auto on the left force icon to the right even when there is no .moCORE-title
+    margin: (-$moCORE-header-padding-y) (-$moCORE-header-padding-x) (-$moCORE-header-padding-y) auto;
+  }
+}
+
+// Title text within header
+.moCORE-title {
+  margin-bottom: 0;
+  line-height: $moCORE-title-line-height;
+}
+
+// MoCORE body
+// Where all moCORE content resides (sibling of .moCORE-header and .moCORE-footer)
+.moCORE-body {
+  position: relative;
+  // Enable `flex-grow: 1` so that the body take up as much space as possible
+  // when there should be a fixed height on `.moCORE-dialog`.
+  flex: 1 1 auto;
+  padding: $moCORE-inner-padding;
+}
+
+// Footer (for actions)
+.moCORE-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; // vertically center
+  justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
+  padding: $moCORE-inner-padding - $moCORE-footer-margin-between / 2;
+  border-top: $moCORE-footer-border-width solid $moCORE-footer-border-color;
+  @include border-bottom-radius($moCORE-content-inner-border-radius);
+
+  // Place margin between footer elements
+  // This solution is far from ideal because of the universal selector usage,
+  // but is needed to fix https://github.com/twbs/bootstrap/issues/24800
+  > * {
+    margin: $moCORE-footer-margin-between / 2;
+  }
+}
+
+// Measure scrollbar width for padding body during moCORE show/hide
+.moCORE-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Scale up the moCORE
+@include media-breakpoint-up(sm) {
+  // Automatically set moCORE's width for larger viewports
+  .moCORE-dialog {
+    max-width: $moCORE-md;
+    margin: $moCORE-dialog-margin-y-sm-up auto;
+  }
+
+  .moCORE-dialog-scrollable {
+    max-height: subtract(100%, $moCORE-dialog-margin-y-sm-up * 2);
+
+    .moCORE-content {
+      max-height: subtract(100vh, $moCORE-dialog-margin-y-sm-up * 2);
+    }
+  }
+
+  .moCORE-dialog-centered {
+    min-height: subtract(100%, $moCORE-dialog-margin-y-sm-up * 2);
+
+    &::before {
+      height: subtract(100vh, $moCORE-dialog-margin-y-sm-up * 2);
+      height: min-content;
+    }
+  }
+
+  .moCORE-content {
+    @include box-shadow($moCORE-content-box-shadow-sm-up);
+  }
+
+  .moCORE-sm { max-width: $moCORE-sm; }
+}
+
+@include media-breakpoint-up(lg) {
+  .moCORE-lg,
+  .moCORE-xl {
+    max-width: $moCORE-lg;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .moCORE-xl { max-width: $moCORE-xl; }
+}

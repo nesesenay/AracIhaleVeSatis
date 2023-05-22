@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IkınciElAracSatis.UI", "IkınciElAracSatis.UI\IkınciElAracSatis.UI.csproj", "{3C9D0A1F-F00B-4115-868B-A06294E9FE06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IkınciElAracSatis.CORE", "IkınciElAracSatis.CORE\IkınciElAracSatis.CORE.csproj", "{FDDFADE0-0737-4CEE-B3DB-1CF275E3DF4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C9D0A1F-F00B-4115-868B-A06294E9FE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9D0A1F-F00B-4115-868B-A06294E9FE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9D0A1F-F00B-4115-868B-A06294E9FE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9D0A1F-F00B-4115-868B-A06294E9FE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDDFADE0-0737-4CEE-B3DB-1CF275E3DF4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDFADE0-0737-4CEE-B3DB-1CF275E3DF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDFADE0-0737-4CEE-B3DB-1CF275E3DF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDFADE0-0737-4CEE-B3DB-1CF275E3DF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C07D5092-F4E8-4E85-9F35-EDE04E83283C}
+	EndGlobalSection
+EndGlobal

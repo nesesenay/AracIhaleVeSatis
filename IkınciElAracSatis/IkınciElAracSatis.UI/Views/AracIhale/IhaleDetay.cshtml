@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "IhaleDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IkınciElAracSatis.UI.Models.VM.AracIhale.IhaleDetayVM
+
+<div class="container-fluid pb-5 pb-4">
+
+    <!-- Page Heading -->
+    <div class="mx-auto mb-4">
+        <h1 class="h3 mb-0 text-center">İhaleye Araç Ekle</h1>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-lg-12 col-md-12 mx-auto">
+
+            <div class="mt-3">
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">İhale Genel Bilgiler</h6>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-success table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>İhale Adı</th>
+                                        <th>Bireysel/Kurumsal</th>
+                                        <th>Şirket</th>
+                                        <th>Statü</th>
+                                        <th>Başlangıç Tarihi</th>
+                                        <th>Bitiş Tarihi</th>
+                                        <th>Başlangıç Saati</th>
+                                        <th>Bitiş Saati</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@Model.IhaleBilgisi.IhaleAdi</td>
+                                        <td>@Model.IhaleBilgisi.Rol</td>
+                                        <td>@Model.IhaleBilgisi.Sirket</td>
+                                        <td>@Model.IhaleBilgisi.IhaleStatu</td>
+                                        <td>@Model.IhaleBilgisi.IhaleBaslangicTarihi</td>
+                                        <td>@Model.IhaleBilgisi.IhaleBitisTarihi</td>
+                                        <td>@Model.IhaleBilgisi.IhaleBaslangicSaati</td>
+                                        <td>@Model.IhaleBilgisi.IhaleBitisSaati</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">İhale Araç Listesi</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Araç ID</th>
+                                        <th>Marka</th>
+                                        <th>Model</th>
+                                        <th>Bireysel/Kurumsal</th>
+                                        <th>Kaydeden Kul</th>
+                                        <th>Kaydedilen Zaman</th>
+                                        <th>Statü</th>
+                                        <th>Fiyat</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.AracIhaleListesi)
+                                    {
+                                        <tr>
+                                            <td>@item.AracID</td>
+                                            <td>@item.Marka</td>
+                                            <td>@item.Model</td>
+                                            <td>@item.Rol</td>
+                                            <td>@item.KaydedenKul</td>
+                                            <td>@item.KaydedilenZaman</td>
+                                            <td>@item.Statu</td>
+                                            <td>@item.Fiyat</td>
+                                            <td>
+                                                @Html.ActionLink("Detay", "IhaleBilgisi", "AracIhale", new { aracID = @item.AracID }, new { @class = "btn btn-primary" })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-auto text-center text-warning pb-4 pt-4">
+                    <h4>@ViewBag.Message</h4>
+                </div>
+                <div class="d-flex align-items-center justify-content-end">
+
+                </div>
+                <div class="text-right pb-5 d-flex mr-4">
+                    @Html.ActionLink("Araç Ekle", "AracEkle", "AracIhale", new { aracIhaleID = Model.IhaleBilgisi.AracIhaleID }, new { @class = "btn btn-primary ms-auto mr-4" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

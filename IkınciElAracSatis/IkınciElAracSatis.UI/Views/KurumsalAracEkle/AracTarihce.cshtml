@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "AracTarihce";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<IkınciElAracSatis.UI.Models.VM.KurumsalAracBilgileri.AracTarihceVM>
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Araç Tarihçe</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12 mx-auto">
+
+            <!-- Card Header - Dropdown -->
+            <!-- Card Body -->
+
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Araç Statü Listesi</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Araç Statüsü</th>
+                                    <th>Değiştirilme Tarihi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Statu</td>
+                                        <td>@item.DegistirilmeTarihi</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @Html.ActionLink("Geri Dön", "AracGuncelle", "KurumsalAracEkle", new { @class = "btn btn-primary font-weight-bold" })
+                </div>
+            </div>
+
+

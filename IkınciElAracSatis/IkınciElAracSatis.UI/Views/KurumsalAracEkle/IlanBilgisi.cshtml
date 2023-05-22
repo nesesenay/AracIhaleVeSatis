@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "IlanBilgisi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var mesaj = ViewBag.Message as string;
+
+}
+@model IkınciElAracSatis.UI.Models.VM.KurumsalAracBilgileri.IlanBilgiVM
+
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm("IlanBilgisi", "KurumsalAracEkle", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">İlan Bilgisi</h6>
+        </div>
+
+        @Html.HiddenFor(a => a.AracID)
+
+        <div class="card-body row px-4">
+            <div class="d-flex align-items-center pt-5 pl-4">
+                <span class="mr-5 font-weight-bold text-primary text-uppercase">İlan Başlığı : </span>
+                @Html.EditorFor(a => a.IlanBasligi, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2" } })
+            </div>
+            <div class="d-flex align-items-center pt-5 pl-4">
+                <span class="mr-4 pr-1 font-weight-bold text-primary text-uppercase">İlan Açıklama : </span>
+                @Html.TextAreaFor(a => a.Aciklama, new { @class = "border border-secondary rounded w-50", @style = "height: 200px" })
+            </div>
+        </div>
+        <div class="text-right pr-4 pb-4">
+            <input class="btn btn-primary font-weight-bold" style="width:150px" type="submit" name="name" value="Kaydet" />
+            @Html.ActionLink("Geri Dön", "AracGuncelle", "KurumsalAracEkle", new { @class = "btn btn-primary font-weight-bold" })
+        </div>  
+        <div>
+            @mesaj
+        </div>
+    </div>
+    }
+</div>

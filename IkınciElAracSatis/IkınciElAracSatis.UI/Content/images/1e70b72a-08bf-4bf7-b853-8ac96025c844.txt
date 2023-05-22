@@ -1,0 +1,27 @@
+
+role göre içerikler olacak 
+döviz kurları eklenecek
+footer -> partial (gelen kulanıcının rolüne göre düzenlencek)
+
+contact ve about dolu olsun.
+contact -> mail, message, capcha koy.
+new books yerine döviz kuru yaz.
+herşey database den gelcek hiçbirşey elle girilmeyecek.
+
+admin => hepsini görecek.
+user => home about us contact görecek
+
+href bilgilerini view sayfaları veritabanında tutmak gerekir. sayfanın adı ve yolu veritabanından geliyor. 
+kişi dinamik olarak yönlendirilecek. 
+
+menü dinamik olacak.
+
+içerikler de database den gelecek ve görünümler aynı olacak. tiplerinide ona göre belirle. html i ile database e bas.
+
+menü yetkisini ayrı tabloda tut.
+
+-------------------
+
+en üst kısım 2-3 sayfada bir tekrar etsin.
+logo ve footer sabit
+

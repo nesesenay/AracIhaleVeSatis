@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IkınciElAracSatis.UI.DAL.Kullanici.TumKullanicilarVM
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Kulanıcı Listeleme</h1>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12 mx-auto">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Kullanıcı Listeleri</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                             aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+
+                    <div class="container-fluid mt-3">
+
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Admin Kullanıcı Listesi</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>İsim</th>
+                                                <th>Soyisim</th>
+                                                <th>Email</th>
+                                                <th>Şifre</th>
+                                                <th>Telefon</th>
+                                                <th>Hesap Bilgisi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.AdminKullanicilar)
+                                            {
+                                                <tr>
+                                                    <td>@item.Ad</td>
+                                                    <td>@item.Soyad</td>
+                                                    <td>@item.Email</td>
+                                                    <td>@item.Sifre</td>
+                                                    <td>@item.Telefon</td>
+                                                    @if (item.HesapAktifMi == true)
+                                                    {
+                                                        <td>Aktif</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>Aktif Değil</td>
+                                                    }
+
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Kurumsal Kullanıcı Listesi</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>İsim</th>
+                                                <th>Soyisim</th>
+                                                <th>Email</th>
+                                                <th>Şifre</th>
+                                                <th>Telefon</th>
+                                                <th>İl</th>
+                                                <th>İlçe</th>
+                                                <th>Adres</th>
+                                                <th>Şirket Adı</th>
+                                                <th>Onay Bilgisi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.KurumsalKullanicilar)
+                                            {
+                                                <tr>
+                                                    <td>@item.Ad</td>
+                                                    <td>@item.Soyad</td>
+                                                    <td>@item.Email</td>
+                                                    <td>@item.Sifre</td>
+                                                    <td>@item.CepTelefonu</td>
+                                                    <td>@item.İl</td>
+                                                    <td>@item.İlce</td>
+                                                    <td>@item.Adres</td>
+                                                    <td>@item.SirketAdi</td>
+                                                    @if (item.OnayliMi == true)
+                                                    {
+                                                        <td>Onaylı</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>Onaylı Değil</td>
+                                                    }
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Bireysel Kullanıcı Listesi</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>İsim</th>
+                                                <th>Soyisim</th>
+                                                <th>Email</th>
+                                                <th>Şifre</th>
+                                                <th>Telefon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.BireyselKullanicilar)
+                                            {
+                                                <tr>
+                                                    <td>@item.Ad</td>
+                                                    <td>@item.Soyad</td>
+                                                    <td>@item.Email</td>
+                                                    <td>@item.Sifre</td>
+                                                    <td>@item.CepTelefonu</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /.container-fluid -->
+
+                    </div>
+

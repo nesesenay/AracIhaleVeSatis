@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "NoterVeKomisyonToplami";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var toplam = ViewBag.Toplam as decimal?;
+}
+@model IkınciElAracSatis.UI.Models.VM.AracUcretBilgileri.NoterVeKomisyonUcretVM
+
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm("NoterVeKomisyon", "KurumsalAracEkle", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Komisyon ve Noter Ücret Bilgileri Tanımlama</h6>
+            </div>
+
+            <div class="card-body row px-4">
+                <div class="col-md-6">
+                    <h3 class="m-0 font-weight-bold text-primary">Komisyon Ücret Bilgileri :</h3>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-5 font-weight-bold text-primary text-uppercase">KOMİSYON ÜCRETİ : </span>
+                        @Html.DisplayFor(a => a.KomisyonUcreti.AracUcret, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2" } })
+                    </div>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-5 font-weight-bold text-primary text-uppercase">BAŞLANGIÇ TARİHİ : </span>
+                        @Html.DisplayFor(a => a.KomisyonUcreti.BaslangicTarihi, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2 form-control", type = "datetime-local" } })
+                    </div>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-5 font-weight-bold text-primary text-uppercase">BİTİŞ TARİHİ : </span>
+                        @Html.DisplayFor(a => a.KomisyonUcreti.BitisTarihi, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2 form-control", type = "datetime-local" } })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="m-0 font-weight-bold text-primary">Noter Ücret Bilgileri :</h3>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-5 font-weight-bold text-primary text-uppercase">Noter Ücreti : </span>
+                        @Html.DisplayFor(a => a.NoterUcreti.Ucret, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2" } })
+                    </div>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-5 font-weight-bold text-primary text-uppercase">BAŞLANGIÇ TARİHİ : </span>
+                        @Html.DisplayFor(a => a.NoterUcreti.BaslangicTarihi, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2 form-control", type = "datetime-local" } })
+                    </div>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-5 font-weight-bold text-primary text-uppercase">BİTİŞ TARİHİ : </span>
+                        @Html.DisplayFor(a => a.NoterUcreti.BitisTarihi, new { htmlAttributes = new { @class = "border border-secondary rounded w-50 p-2 form-control", type = "datetime-local" } })
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between pb-4">
+                <div class="mt-4 pl-5">
+                    <p>Toplam Tutar : @toplam</p>
+                </div>
+                <div class="text-right pr-5 mt-4">
+                    @Html.ActionLink("Geri Dön", "AracGuncelle", "KurumsalAracEkle", new { @class = "btn btn-primary font-weight-bold" })
+                </div>
+            </div>
+            
+        </div>
+    }
+</div>
+

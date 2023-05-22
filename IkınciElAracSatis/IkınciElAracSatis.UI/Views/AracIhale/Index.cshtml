@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<IkınciElAracSatis.UI.Models.VM.AracIhale.IhaleListeleVM>
+
+<div class="container-fluid">
+<!-- Page Heading -->
+<div class="mx-auto mb-4 mt-2">
+    <h1 class="h3 mb-0 text-center">İhale Listesi</h1>
+</div>
+
+<!-- Content Row -->
+
+<div class="row pb-5 mb-4">
+
+    <!-- Area Chart -->
+    <div class="col-lg-12 col-md-12 mx-auto">
+
+        <div class="mt-3">
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">İhale Listesi</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Araç İhale ID</th>
+                                    <th>İhalenin Adı</th>
+                                    <th>Sirket</th>
+                                    <th>Bireysel/Kurumsal</th>
+                                    <th>Kullanıcı</th>
+                                    <th>İhalenin Statüsü</th>
+                                    <th>İhale Başlangıç Tarihi</th>
+                                    <th>İhale Bitiş Tarihi</th>
+                                    <th>İhale Başlangıç Saati</th>
+                                    <th>İhale Bitiş Saati</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.AracIhaleID</td>
+                                        <td>@item.IhaleAdi</td>
+                                        <td>@item.Sirket</td>
+                                        <td>@item.Rol</td>
+                                        <td>@item.Kullanici</td>
+                                        <td>@item.IhaleStatu</td>
+                                        <td>@item.IhaleBaslangicTarihi</td>
+                                        <td>@item.IhaleBitisTarihi</td>
+                                        <td>@item.IhaleBaslangicSaati</td>
+                                        <td>@item.IhaleBitisSaati</td>
+                                        <td>
+                                            @Html.ActionLink("Detay", "IhaleDetay", "AracIhale", new { aracIhaleID = @item.AracIhaleID }, new { @class = "btn btn-primary" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

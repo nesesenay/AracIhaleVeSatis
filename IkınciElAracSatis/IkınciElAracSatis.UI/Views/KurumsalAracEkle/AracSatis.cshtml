@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AracSatis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IkınciElAracSatis.UI.Models.VM.KurumsalAracDetay.AracSatisVM
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm("AracSatis", "KurumsalAracEkle", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Hemen Al Satış İşlemleri</h6>
+            </div>
+
+            <div class="card-body row px-4">
+                <div class="col-md-12">
+                    <h3 class="m-0 font-weight-bold text-primary">Lütfen Satış Yapılacak Şirketi Seçiniz :</h3>
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-2 font-weight-bold text-primary text-uppercase">Şirketler : </span>
+                        @Html.DropDownListFor(a => a.SirketID, @Model.Sirketler, "Seçiniz", new { @class = "btn btn-outline-dark w-25", @type = "button" })
+                    </div>
+                </div>
+            </div>
+            @Html.HiddenFor(a => a.AracID)
+            <div class="text-right pr-4 pb-4 mt-4">
+                <input class="btn btn-primary font-weight-bold" style="width:150px" type="submit" name="name" value="Kaydet" />
+                @Html.ActionLink("Geri Dön", "AracGuncelle", "KurumsalAracEkle", new { @class = "btn btn-primary font-weight-bold" })
+            </div>
+        </div>
+     }
+</div>
+

@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IkınciElAracSatis.UI.Models.VM.BireyselAracBilgileri.GuncellenecekBireyselAracVM
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Araç Bilgilerini Güncelle</h1>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row p-4">
+
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12 mx-auto">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Araç Detay Bilgileri</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                             aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body mx-auto p-5">
+
+                    @using (Html.BeginForm("Detay", "BireyselAracIslemleri", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(a => a.Item2.Araclar.AracNo)
+
+                    <div class="row justify-content-center align-items-center px-4 py-2">
+
+                        <div class="col-3">
+                            <div class="dropdown row p-2">
+                                <span class="text-dark mr-1">Üye Ad Soyad :</span>
+                                @Html.TextBoxFor(a => a.Item2.AracSahibininAdi, new { @class = "p-1", @Value = Model.Item1.AracSahibininAdi })
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="dropdown row p-2">
+                                <span class="text-dark mr-1">Statü :</span>
+                                @Html.DropDownListFor(a => a.Item2.BireyselKullaniciAracDetaylari.BireyselAracStatuID, new SelectList(Model.Item2.BireyselKullaniciAracDetaylari.AracStatuleri, "Value", "Text", Model.Item2.BireyselKullaniciAracDetaylari.BireyselAracStatuID = Model.Item1.BireyselArac.BireyselAracStatuID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="dropdown row p-2">
+                                <span class="text-dark mr-1">Ön Değerleme Fiyatı :</span>
+                                @Html.TextBoxFor(a => a.Item2.OnDegerlemeTutari, new { @class = "p-1", @Value = Model.Item1.OnDegerlemeTutari })
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="dropdown row p-2">
+                                <span class="text-dark mr-1">Teklif Fiyatı :</span>
+                                @Html.TextBoxFor(a => a.Item2.TekliFiyati, new { @class = "p-1", @Value = Model.Item1.TekliFiyati })
+                            </div>
+                        </div>
+                    </div>
+
+
+                        <div class="row justify-content-center align-items-center px-4 py-2">
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Marka :</span>
+                                    @Html.DropDownListFor(a => a.Item2.Araclar.MarkaID, new SelectList(Model.Item2.Araclar.Markalar, "Value", "Text", Model.Item2.Araclar.MarkaID = Model.Item1.Arac.MarkaID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Model :</span>
+                                    @Html.DropDownListFor(a => a.Item2.Araclar.ModelID, new SelectList(Model.Item2.Araclar.Modeller, "Value", "Text", Model.Item2.Araclar.ModelID = Model.Item1.Arac.ModelID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Gövde Tipi :</span>
+                                    @Html.DropDownListFor(a => a.Item2.AracDetaylari.GovdeTipiID, new SelectList(Model.Item2.AracDetaylari.GovdeTipleri, "Value", "Text", Model.Item2.AracDetaylari.GovdeTipiID = Model.Item1.AracDetay.GovdeTipiID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Yıl :</span>
+                                    @Html.TextBoxFor(a => a.Item2.AracDetaylari.Yil, new { @class = "p-1", @Value = Model.Item1.AracDetay.Yil })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row justify-content-center align-items-center px-4 py-2">
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Yakıt Tipi :</span>
+                                    @Html.DropDownListFor(a => a.Item2.AracDetaylari.YakitTipiID, new SelectList(Model.Item2.AracDetaylari.YakitTipleri, "Value", "Text", Model.Item2.AracDetaylari.YakitTipiID = Model.Item1.AracDetay.YakitTipiID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Vites Tipi :</span>
+                                    @Html.DropDownListFor(a => a.Item2.AracDetaylari.VitesTipiID, new SelectList(Model.Item2.AracDetaylari.VitesTipleri, "Value", "Text", Model.Item2.AracDetaylari.VitesTipiID = Model.Item1.AracDetay.VitesTipiID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Versiyon :</span>
+                                    @Html.DropDownListFor(a => a.Item2.AracDetaylari.VersiyonID, new SelectList(Model.Item2.AracDetaylari.Versiyonlar, "Value", "Text", Model.Item2.AracDetaylari.VersiyonID = Model.Item1.AracDetay.VersiyonID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Renk :</span>
+                                    @Html.DropDownListFor(a => a.Item2.AracDetaylari.RenkID, new SelectList(Model.Item2.AracDetaylari.Renkler, "Value", "Text", Model.Item2.AracDetaylari.RenkID = Model.Item1.AracDetay.RenkID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row justify-content-center align-items-center px-4 py-2">
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark mr-1">Donanım :</span>
+                                    @Html.DropDownListFor(a => a.Item2.AracDetaylari.DonanimID, new SelectList(Model.Item2.AracDetaylari.Donanimlar, "Value", "Text", Model.Item2.AracDetaylari.DonanimID = Model.Item1.AracDetay.DonanimID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark">Km Bilgisi :</span>
+                                    @Html.TextBoxFor(a => a.Item2.AracDetaylari.KmBilgisi, new { @class = "p-1", @Value = Model.Item1.AracDetay.KmBilgisi })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark">Motor Hacmi :</span>
+                                    @Html.TextBoxFor(a => a.Item2.AracDetaylari.MotorHacmi, new { @class = "p-1", @Value = Model.Item1.AracDetay.MotorHacmi })
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark">Motor Gücü :</span>
+                                    @Html.TextBoxFor(a => a.Item2.AracDetaylari.MotorGucu, new { @class = "p-1", @Value = Model.Item1.AracDetay.MotorGucu })
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row justify-content-between align-items-start px-4 py-2">
+                            <div class="col-3">
+                                <div class="dropdown row p-2">
+                                    <span class="text-dark">Plaka/Uyruk :</span>
+                                    @Html.DropDownListFor(a => a.Item2.Araclar.PlakaID, new SelectList(Model.Item2.Araclar.Plakalar, "Value", "Text", Model.Item2.Araclar.PlakaID = Model.Item1.Arac.PlakaID), new { @class = "btn btn-outline-dark mx-auto", @type = "button" })
+                                </div>
+                            </div>
+
+                            <div class="dropdown mt-2 col-8 d-flex pt-4">
+                                <span class="text-dark mr-4">Açıklama:</span>
+                                @Html.TextAreaFor(a => a.Item2.AracDetaylari.Aciklama, new { @class = "border-dark", @style = "width:100%; height: 140px", @Placeholder = @Model.Item1.AracDetay.Aciklama })
+                            </div>
+
+                        </div>
+
+
+                        <div class="row justify-content-start align-items-center px-4 pb-2">
+                            <div class="d-flex p-2">
+                                <span class="text-primary font-weight-bold">Garantili Mi :</span>
+                                @Html.CheckBoxFor(a => a.Item1.Arac.GrantiliMi, Model.Item2.Araclar.GarantiliMi)
+
+                            </div>
+                        </div>
+                        <div class="row justify-content-start align-items-center px-4 py-4">
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="image">Resim seçin:</label>
+                                    <input type="file" id="image" name="file" accept="images/*" multiple>
+                                    <div id="image-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center px-4 pb-5 pt-4">
+                            <input type="button" class="btn btn-outline-primary mb-4 font-weight-bold mr-4" value="Alıcı Bilgileri" />
+                            @Html.ActionLink("Araç Tarihçe", "BireyselAracTarihce", "BireyselAracIslemleri", new { @class = "btn btn-outline-primary mb-4 font-weight-bold mr-4" })
+                            @Html.ActionLink("Hasar Tramer Bilgileri", "TramerBilgisi", "AracTramer", new { @class = "btn btn-outline-primary mb-4 font-weight-bold mr-4" })
+                            <input type="submit" class="btn btn-outline-primary mb-4 font-weight-bold mr-4" value="Güncelle" />
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End of Main Content -->
+
+
+<script>
+    var input = document.getElementById('image');
+    var preview = document.getElementById('image-preview');
+
+    input.addEventListener('change', function() {
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener('load', function() {
+            preview.innerHTML = '<img style="width:50px"  src="' + reader.result + '">';
+        });
+
+        reader.readAsDataURL(file);
+    });
+</script>

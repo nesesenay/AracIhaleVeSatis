@@ -1,0 +1,2 @@
+C:\Users\neses\Desktop\IkınciElAracSatis\IkınciElAracSatis.DAL\obj\Debug\IkınciElAracSatis.DAL.csproj.AssemblyReference.cache
+C:\Users\neses\Desktop\IkınciElAracSatis\IkınciElAracSatis.DAL\obj\Debug\IkınciElAracSatis.DAL.csproj.CoreCompileInputs.cache

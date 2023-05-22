@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using IkınciElAracSatis.UI.Models.VM.Kullanici
+@model List<KurumsalKullaniciVM>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Paket Tanımlama</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12 mx-auto">
+
+            <!-- Card Header - Dropdown -->
+            <!-- Card Body -->
+
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Kurumsal Kullanıcı Listesi</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>İsim</th>
+                                    <th>Soyisim</th>
+                                    <th>Email</th>
+                                    <th>Şifre</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Ad</td>
+                                        <td>@item.Soyad</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.Sifre</td>
+                                        <td class="text-center">@Html.ActionLink("Detay", "PaketTanimla", "PaketTanimlama", new { id = item.KurumsalKullaniciID }, new { @class = "btn btn-outline-primary mb-4 font-weight-bold mr-4" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+
+
+
+
+

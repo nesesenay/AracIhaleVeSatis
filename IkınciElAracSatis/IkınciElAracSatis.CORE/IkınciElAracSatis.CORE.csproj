@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDDFADE0-0737-4CEE-B3DB-1CF275E3DF4A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IkınciElAracSatis.CORE</RootNamespace>
+    <AssemblyName>IkınciElAracSatis.CORE</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\IkinciElAracSatisContext.cs" />
+    <Compile Include="Entities\AdminKullanici.cs" />
+    <Compile Include="Entities\Arac.cs" />
+    <Compile Include="Entities\AracDetay.cs" />
+    <Compile Include="Entities\AracDurum.cs" />
+    <Compile Include="Entities\AracFoto.cs" />
+    <Compile Include="Entities\AracIhale.cs" />
+    <Compile Include="Entities\AracParca.cs" />
+    <Compile Include="Entities\AracParcaDurum.cs" />
+    <Compile Include="Entities\AracStatu.cs" />
+    <Compile Include="Entities\AracStatuLog.cs" />
+    <Compile Include="Entities\AracUcret.cs" />
+    <Compile Include="Entities\AracUcretTip.cs" />
+    <Compile Include="Entities\BelirlenenKomisyon.cs" />
+    <Compile Include="Entities\BireyselAracSahip.cs" />
+    <Compile Include="Entities\BireyselAracStatu.cs" />
+    <Compile Include="Entities\BireyselAracTarihce.cs" />
+    <Compile Include="Entities\BireyselKullanici.cs" />
+    <Compile Include="Entities\BireyselKullaniciAracDetay.cs" />
+    <Compile Include="Entities\OnDegerlemeTutar.cs" />
+    <Compile Include="Entities\GovdeTip.cs" />
+    <Compile Include="Entities\IhaleFiyatBelirleme.cs" />
+    <Compile Include="Entities\IhaleStatu.cs" />
+    <Compile Include="Entities\IhaleyeAracEkleme.cs" />
+    <Compile Include="Entities\IlanBilgi.cs" />
+    <Compile Include="Entities\Komisyon.cs" />
+    <Compile Include="Entities\Kullanici.cs" />
+    <Compile Include="Entities\AracIhaleSahip.cs" />
+    <Compile Include="Entities\AracTarihce.cs" />
+    <Compile Include="Entities\IhaleFiyat.cs" />
+    <Compile Include="Entities\KurumsalKullanici.cs" />
+    <Compile Include="Entities\KurumsalKullaniciAracDetay.cs" />
+    <Compile Include="Entities\KullaniciFavori.cs" />
+    <Compile Include="Entities\Marka.cs" />
+    <Compile Include="Entities\Model.cs" />
+    <Compile Include="Entities\Rol.cs" />
+    <Compile Include="Entities\NoterUcret.cs" />
+    <Compile Include="Entities\OpsiyonelDonanim.cs" />
+    <Compile Include="Entities\Paket.cs" />
+    <Compile Include="Entities\PaketTanimlama.cs" />
+    <Compile Include="Entities\ParaBirim.cs" />
+    <Compile Include="Entities\Plaka.cs" />
+    <Compile Include="Entities\Renk.cs" />
+    <Compile Include="Entities\Sirket.cs" />
+    <Compile Include="Entities\Versiyon.cs" />
+    <Compile Include="Entities\VitesTip.cs" />
+    <Compile Include="Entities\YakitTip.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

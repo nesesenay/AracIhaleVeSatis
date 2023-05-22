@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "AracEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IkınciElAracSatis.UI.Models.VM.AracIhale.DBIhaleFiyatBelirlemeVM
+
+<div class="container">
+
+    @using (Html.BeginForm("AracEKle", "AracIhale", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card shadow mt-5" style="margin-top:20%; margin:0 12%">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Arac Ekle</h6>
+            </div>
+
+
+            <div class="card-body row px-4">
+                <div class="col-md-8">
+                    <span class="mr-4 font-weight-bold text-primary">Araç ID : </span>
+                    @Html.DropDownListFor(a => a.AracID, Model.Araclar, "Seçiniz", new { @class = "btn btn-outline-dark  rounded w-50 p-2", @type = "button", @style = "margin-left: 6.3em" })
+                </div>
+
+
+                <div class="col-md-8">
+                    <div class="d-flex jalign-items-center pt-5 pl-4">
+                        <span class="mr-4 font-weight-bold text-primary">İhale Başlangıç Fiyatı :</span>
+                        @Html.TextBoxFor(a => a.IhaleBaslangicFiyati, new { @class = "rounded w-50 p-2" })
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center pt-5 pl-4">
+                        <span class="mr-4 font-weight-bold text-primary">Minimum Alım Fiyatı : </span>
+                        @Html.TextBoxFor(a => a.MinimumAlimFiyati, new { @class = "rounded w-50 p-2" })
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="text-right pb-4 pt-4 d-flex">
+                        <input class="btn btn-primary mr-4 ms-auto" style="width:200px" type="submit" name="name" value="Kaydet" />
+                        @Html.ActionLink("Vazgeç", "IhaleDetay", "AracIhale", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    }
+</div>
+

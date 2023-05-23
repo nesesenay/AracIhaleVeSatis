@@ -18,6 +18,6 @@ Bu proje, bir araç satış, alım ve ihale yönetim sisteminin admin panelini i
 - Araç ekleme ve satış işlemleri: Kurumsal müşterilere ait araçların listelenmesi, güncellenmesi ve yeni araçların eklenmesi işlemleri gerçekleştirilebilir. Ayrıca araçların satışıyla ilgili işlemler de yapılabilir.
 - Müşteriyle ilgili işlemler: Kurumsal müşterilere ait araçların yönetimi ve güncellenmesi, bireysel müşterilere ait araçların listelenmesi ve güncellenmesi gibi işlemler gerçekleştirilebilir. Müşterilere paket tanımlama ve müşterileri onaylama gibi işlemler yapılabilir. 
 - Profil yönetimi: Yönetici kendi profilini görüntüleyebilir ve isterse bilgilerini güncelleyebilir.
-- Kullanıcıları görüntüleme: Siteye kayıtlı olan kurumsal, bireysel ve yönetici olan kullanıcılar tablolar üzerinden görüntülenebilir.
+- Kullanıcıları görüntüleme: Siteye kayıtlı olan kurumsal, bireysel ve yönetici rolünde olan kullanıcılar tablolar üzerinden görüntülenebilir.
 - Kurumsal müşteriyle ilgili işlemler: Kurumsal müşterilere tanımlanan araçların tramer bilgisi, aracın tarihçesi, aracın ilan bilgisi, komisyon ve noter ücretleri gibi bilgilerin kaydı yapılabilir. Aracın hemen alım ve satış işlemi gerçekleştirilebilir.
 - Bireysel müşteriyle ilgili işlemler: Bireysel müşterilere tanımlanan araçların tarihçe ve tramer bilgisi görüntülenebilir.

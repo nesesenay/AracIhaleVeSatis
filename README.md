@@ -1,8 +1,7 @@
 # Araç Satış, Alım ve İhale Projesi - Admin Paneli
 
-## Bu proje, Bilgeadam Teknoloji .NET Star Development Program mezuniyetim için geliştirmiş olduğum bitirme projemdir. 
+## Bu proje, ASP.NET MVC ve Entity Framework kullanılarak geliştirilmiş bir araç satış, alım ve ihale yönetim sistemidir. Burada sizlere, projenin genel yapısını, kullanılan teknolojileri açıklamak istiyorum.
 
-Bu proje, ASP.NET MVC ve Entity Framework kullanılarak geliştirilmiş bir araç satış, alım ve ihale yönetim sistemidir. Burada sizlere, projenin genel yapısını, kullanılan teknolojileri açıklamak istiyorum.
 ---
 
 ### Proje Hakkında

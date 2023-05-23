@@ -3,15 +3,17 @@
 ## Bu proje, ASP.NET MVC ve Entity Framework kullanılarak geliştirilmiş bir araç satış, alım ve ihale yönetim sistemidir. Burada sizlere, projenin genel yapısını, kullanılan teknolojileri açıklamak istiyorum.
 
 ### Proje Hakkında
----
+
 Bu proje, bir araç satış, alım ve ihale yönetim sisteminin admin panelini içermektedir. Aşağıda, projenin ana özellikleri hakkında bazı bilgiler yer almaktadır:
 - Projede ASP.NET MVC (Model-View-Controller) mimarisi kullanılmıştır.
 - Veritabanı işlemleri için Entity Framework ORM (Object-Relational Mapping) kullanılmıştır.
 - Proje, kullanıcıları yetkilendirmek ve kimlik doğrulama yapmak için ASP.NET'in sağladığı oturum (session) ve kimlik (authentication) mekanizmalarından yararlanmaktadır.
 - Veri erişim işlemleri, bir veri erişim katmanı (data access layer) kullanılarak yapılmaktadır.
 
-### Bu projede aşağıdaki işlemler gerçekleştirilebilir:
 ---
+
+### Bu projede aşağıdaki işlemler gerçekleştirilebilir:
+
 - İhale işlemleri: Yeni bir ihale oluşturma ve var olan ihaleleri listeleme ve detaylarına erişme gibi işlemler yapılabilir.
 - Araç ekleme ve satış işlemleri: Kurumsal müşterilere ait araçların listelenmesi, güncellenmesi ve yeni araçların eklenmesi işlemleri gerçekleştirilebilir. Ayrıca araçların satışıyla ilgili işlemler de yapılabilir.
 - Müşteriyle ilgili işlemler: Kurumsal müşterilere ait araçların yönetimi ve güncellenmesi, bireysel müşterilere ait araçların listelenmesi ve güncellenmesi gibi işlemler gerçekleştirilebilir. Müşterilere paket tanımlama ve müşterileri onaylama gibi işlemler yapılabilir. 

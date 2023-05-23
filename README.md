@@ -9,6 +9,7 @@ Bu proje, bir araç satış, alım ve ihale yönetim sisteminin admin panelini i
 - Veritabanı işlemleri için Entity Framework ORM (Object-Relational Mapping) kullanılmıştır.
 - Proje, kullanıcıları yetkilendirmek ve kimlik doğrulama yapmak için ASP.NET'in sağladığı oturum (session) ve kimlik (authentication) mekanizmalarından yararlanmaktadır.
 - Veri erişim işlemleri, bir veri erişim katmanı (data access layer) kullanılarak yapılmaktadır.
+- Veritabanı işlemleri için MS SQL Server kullanılmaktadır. Proje, Code First yaklaşımıyla Entity Framework ORM'i kullanarak veritabanı işlemlerini gerçekleştirmektedir.
 
 ---
 
